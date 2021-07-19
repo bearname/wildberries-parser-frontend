@@ -11,12 +11,13 @@
       </li>
     </ul>
     <div id="alert" class="hide"></div>
-    <form id="searchForm" @submit.prevent="handleSearch">
-      <label for="searchInput"
-      ><input id="searchInput" type="text" placeholder="Search"
+    <form id="searchForm" @submit.prevent="handleSearch" class="form-group search-container">
+      <label for="searchInput" class="form-group search-input"
+      ><input id="searchInput" type="text" placeholder="Search" class="form-control"
       />
-        <button id="submit" class="btn">Поиск</button>
       </label>
+      <button id="submit" class="btn search-button">Поиск</button>
+
     </form>
     <h6 id="searchTitle" class="text-center text-bold hide"></h6>
     <div class="scrolling-wrapper">
@@ -45,8 +46,6 @@ export default {
   created() {
     this.user = JSON.parse(localStorage.getItem('user'));
     this.products.loading = true;
-
-
     // userService.getAll().then(users => this.users = users);
   },
   mounted() {
@@ -343,5 +342,63 @@ a {
   padding: 0.85rem 5rem;
   display: block;
   margin: 80px auto 0;
+}
+
+.search-container {
+  position: relative;
+  width: 330px;
+  height: 25px;
+  left: 247px;
+  top: 260px;
+}
+
+.search-input {
+  position: absolute;
+  width: 278px;
+  height: 40px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.search-button {
+  position: absolute;
+  width: 85px;
+  height: 39px;
+  right: -27px;
+  border-radius: 0 8px 8px 0;
+  font-family: Roboto,serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  background: #5d5fef;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+input {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
 }
 </style>
